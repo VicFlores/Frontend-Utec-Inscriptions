@@ -39,10 +39,13 @@ const Header = () => {
           <Link href="/" passHref>
             <LinkRouter>Home</LinkRouter>
           </Link>
-          <Link href="/" passHref>
+          <Link
+            href="https://portal.utec.edu.sv/(S(1nta1wajkw3percvqreoybjr))/login.aspx"
+            passHref
+          >
             <LinkRouter>Portal</LinkRouter>
           </Link>
-          <Link href="/" passHref>
+          <Link href="https://www.utecvirtual.edu.sv/" passHref>
             <LinkRouter>Classroom</LinkRouter>
           </Link>
 
@@ -53,7 +56,7 @@ const Header = () => {
           </HeaderButton>
           <ThemeProvider theme={invertTheme}>
             <HeaderButton>
-              <Link href="/" passHref>
+              <Link href="/login" passHref>
                 <LinkRouter>Login</LinkRouter>
               </Link>
             </HeaderButton>
