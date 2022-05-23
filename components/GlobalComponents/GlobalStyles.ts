@@ -36,6 +36,7 @@ export const FormContainer = styled.div`
   color: white;
   background-color: #f1f1f1;
   height: ${(props) => props.theme.formsHeight};
+  margin-bottom: ${(props) => props.theme.margin};
 `;
 
 export const Form = styled.form`
