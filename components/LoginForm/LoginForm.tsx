@@ -1,4 +1,5 @@
 import React from 'react';
+import { ThemeProvider } from 'styled-components';
 import { TForm } from '../../types/TForm';
 import {
   Button,
@@ -10,21 +11,39 @@ import {
   FormContainer,
 } from '../GlobalComponents/GlobalStyles';
 
-const LoginForm = ({ src, textButton, cols, height }: TForm) => {
+const LoginForm = ({
+  src,
+  textButton,
+  cols,
+  height,
+  breakpoint,
+  imgWidth,
+  formsHeight,
+}: TForm) => {
   return (
-    <MainFormContainer theme={{ columns: cols, highpoint: height }}>
-      <Figure>
-        <Img src={src} />
-      </Figure>
+    <ThemeProvider
+      theme={{
+        columns: cols,
+        highpoint: height,
+        breakColumns: breakpoint,
+        imgWidth,
+        formsHeight,
+      }}
+    >
+      <MainFormContainer>
+        <Figure>
+          <Img src={src} />
+        </Figure>
 
-      <FormContainer>
-        <Form>
-          <Input placeholder="Email" type={'email'} />
-          <Input placeholder="Password" type={'password'} />
-          <Button>{textButton}</Button>
-        </Form>
-      </FormContainer>
-    </MainFormContainer>
+        <FormContainer>
+          <Form>
+            <Input placeholder="Email" type={'email'} />
+            <Input placeholder="Password" type={'password'} />
+            <Button>{textButton}</Button>
+          </Form>
+        </FormContainer>
+      </MainFormContainer>
+    </ThemeProvider>
   );
 };
 
