@@ -11,6 +11,9 @@ function login() {
           cols="repeat(2, 400px)"
           textButton="Join"
           height="90vh"
+          breakpoint="300px"
+          imgWidth="100%"
+          formsHeight="350px"
         />
       </Layout>
     </div>
