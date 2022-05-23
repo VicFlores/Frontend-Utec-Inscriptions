@@ -11,9 +11,31 @@ import {
   FormContainer,
 } from '../GlobalComponents/GlobalStyles';
 
-const InscriptionsForm = ({ src, textButton, cols, height }: TForm) => {
+const InscriptionsForm = ({
+  src,
+  textButton,
+  cols,
+  height,
+  mt,
+  imgWidth,
+  formCol,
+  formsHeight,
+  btnColStart,
+  btnColEnd,
+}: TForm) => {
   return (
-    <ThemeProvider theme={{ columns: cols, highpoint: height }}>
+    <ThemeProvider
+      theme={{
+        columns: cols,
+        highpoint: height,
+        margin: mt,
+        imgWidth,
+        formCol,
+        formsHeight,
+        btnColStart,
+        btnColEnd,
+      }}
+    >
       <MainFormContainer>
         <Figure>
           <Img src={src} />
@@ -21,8 +43,16 @@ const InscriptionsForm = ({ src, textButton, cols, height }: TForm) => {
 
         <FormContainer>
           <Form>
-            <Input placeholder="Email" type={'email'} />
-            <Input placeholder="Password" type={'password'} />
+            <Input placeholder="Name" type={'text'} />
+            <Input placeholder="Lastname" type={'text'} />
+            <Input placeholder="Age" type={'email'} />
+            <Input placeholder="DNI" type={'text'} />
+            <Input placeholder="NIT" type={'text'} />
+            <Input placeholder="Country" type={'text'} />
+            <Input placeholder="City" type={'text'} />
+            <Input placeholder="Address" type={'text'} />
+            <Input placeholder="CellPhone" type={'email'} />
+            <Input placeholder="Graduated" type={'text'} />
             <Button>{textButton}</Button>
           </Form>
         </FormContainer>
