@@ -1,6 +1,6 @@
 import React from 'react';
-import InscriptionsForm from '../components/InscriptionsForm/InscriptionsForm';
-import Layout from '../components/Layout/Layout';
+import InscriptionsForm from '../../components/InscriptionsForm/InscriptionsForm';
+import Layout from '../../components/Layout/Layout';
 
 function Inscriptions() {
   return (

@@ -5,6 +5,9 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
+  env: {
+    BASE_URL: 'http://localhost:4000'
+  },
 };
 
 module.exports = nextConfig;

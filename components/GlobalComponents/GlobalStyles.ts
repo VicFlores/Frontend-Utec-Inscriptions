@@ -43,7 +43,7 @@ export const Form = styled.form`
   grid-template-columns: ${(props) => props.theme.formCol};
   align-self: center;
   border-radius: 20px;
-  gap: 40px;
+  gap: 20px;
 
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -65,6 +65,18 @@ export const Input = styled.input`
     opacity: 0.5;
   }
 `;
+
+export const ErrorField = styled.p`
+  color: red;
+  font-size: 10px;
+  margin: 0;
+  padding: 0;
+`
+
+export const Error = styled.p`
+  color: red;
+  text-align: center;
+`
 
 export const Button = styled.button`
   background-color: #6d1d3c;
