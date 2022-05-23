@@ -6,14 +6,21 @@ export const MainFormContainer = styled.section`
   align-items: center;
   justify-content: center;
   height: ${(props) => props.theme.highpoint};
+  margin-top: ${(props) => props.theme.margin};
+
+  @media screen and (max-width: 992px) {
+    grid-template-columns: ${(props) => props.theme.breakColumns};
+  }
 `;
 
 export const Figure = styled.figure`
   margin: 0;
-  width: 100%;
+  width: ${(props) => props.theme.imgWidth};
   text-align: center;
+  align-self: center;
+  justify-self: center;
 
-  @media screen and (max-width: 650px) {
+  @media screen and (max-width: 992px) {
     display: none;
   }
 `;
@@ -28,14 +35,19 @@ export const FormContainer = styled.div`
   border-radius: 20px;
   color: white;
   background-color: #f1f1f1;
-  height: 350px;
+  height: ${(props) => props.theme.formsHeight};
 `;
 
 export const Form = styled.form`
   display: grid;
+  grid-template-columns: ${(props) => props.theme.formCol};
   align-self: center;
   border-radius: 20px;
   gap: 40px;
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const Input = styled.input`
@@ -63,4 +75,11 @@ export const Button = styled.button`
   border-style: none;
   justify-self: center;
   cursor: pointer;
+  grid-column-start: ${(props) => props.theme.btnColStart};
+  grid-column-end: ${(props) => props.theme.btnColEnd};
+
+  @media screen and (max-width: 768px) {
+    grid-column-start: 1;
+    grid-column-end: 1;
+  }
 `;
