@@ -50,7 +50,7 @@ const Header = () => {
           </Link>
 
           <HeaderButton>
-            <Link href="/" passHref>
+            <Link href="/signup" passHref>
               <LinkRouter>SignUp</LinkRouter>
             </Link>
           </HeaderButton>

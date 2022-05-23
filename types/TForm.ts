@@ -2,7 +2,7 @@ export type TForm = {
   src: string;
   textButton: string;
   cols: string;
-  height: string;
+  height?: string;
   breakpoint?: string;
   mt?: string;
   imgWidth: string;
