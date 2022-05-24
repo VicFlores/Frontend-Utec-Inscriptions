@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const TableContainer = styled.section`
   display: flex;
-  margin: 15px 0 50px 0;
   justify-content: center;
   align-items: flex-start;
   margin: 80px 0;
