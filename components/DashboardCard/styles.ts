@@ -15,6 +15,8 @@ export const Card = styled.div`
   align-self: center;
   justify-self: center;
   border-radius: 20px;
+  box-shadow: 15px -9px 15px -3px rgba(0, 0, 0, 0.1);
+  margin-top: 15px;
 `;
 
 export const CardImgContainer = styled.figure`
@@ -38,13 +40,13 @@ export const CardInfoContainer = styled.div`
   padding-top: 20px;
   height: 325px;
   width: 100%;
-  background-color: #f5eedc;
+  background-color: #eeeeee;
   border-radius: 20px;
 `;
 
 export const CardInfoText = styled.p`
   padding-left: 1rem;
   padding-right: 1rem;
-  font-size: 1rem;
+  font-size: 1.1rem;
   margin: 0;
 `;

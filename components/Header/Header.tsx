@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-import {useRouter} from 'next/router'
+import { useRouter } from 'next/router';
 import { ThemeProvider } from 'styled-components';
-import { removeCookies } from 'cookies-next'
+import { removeCookies } from 'cookies-next';
 import { AiOutlineMenu } from 'react-icons/ai';
 import {
   AppName,
@@ -18,7 +18,7 @@ import {
 import { TLayout } from '../../types/TLayout';
 
 const Header = ({ show }: TLayout) => {
-  const router = useRouter()
+  const router = useRouter();
   const [menu, setMenu] = useState<boolean>(false);
 
   const handleMenu = () => {
@@ -26,11 +26,11 @@ const Header = ({ show }: TLayout) => {
   };
 
   const logout = () => {
-    removeCookies('token')
+    removeCookies('token');
     router.push({
-      pathname: '/'
-    })
-  }
+      pathname: '/',
+    });
+  };
 
   return (
     <HeaderContainer>
@@ -78,8 +78,8 @@ const Header = ({ show }: TLayout) => {
           ) : (
             <ThemeProvider theme={{ fg: theme.bg, bg: theme.fg, show }}>
               <HeaderButton onClick={logout}>
-                  <LinkRouter> Logout</LinkRouter>
-                </HeaderButton>
+                <LinkRouter> Logout</LinkRouter>
+              </HeaderButton>
             </ThemeProvider>
           )}
         </ThemeProvider>
