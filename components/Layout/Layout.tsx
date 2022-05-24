@@ -1,12 +1,11 @@
 import React from 'react';
-import { THeaderButton } from '../../types/THeaderButton';
 import { TLayout } from '../../types/TLayout';
 import Header from '../Header/Header';
 
-const Layout = ({ children, show, textButton }: TLayout) => {
+const Layout = ({ children, show }: TLayout) => {
   return (
     <>
-      <Header show={show} textButton={textButton} />
+      <Header show={show} />
       {children}
     </>
   );
