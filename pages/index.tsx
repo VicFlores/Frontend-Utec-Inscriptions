@@ -5,9 +5,9 @@ import Layout from '../components/Layout/Layout';
 
 const index = () => {
   return (
-    <Layout>
-      <Homemain urlImage='https://res.cloudinary.com/dohkdu219/image/upload/v1653262946/utec-inscriptions/homeImage_qpmttp.png' />
-      <Homecontent></Homecontent>
+    <Layout show="none">
+      <Homemain urlImage="https://res.cloudinary.com/dohkdu219/image/upload/v1653262946/utec-inscriptions/homeImage_qpmttp.png" />
+      <Homecontent />
     </Layout>
   );
 };
