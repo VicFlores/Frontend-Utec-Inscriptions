@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { ThemeProvider } from 'styled-components';
 import { AiOutlineMenu } from 'react-icons/ai';
-import { TLayout } from '../../types/TLayout';
 import {
   AppName,
   AppNameContainer,
@@ -12,10 +11,11 @@ import {
   NavContainer,
   BurgerMenu,
   BurgerMenuContainer,
-  invertTheme,
+  theme,
 } from './styles';
+import { TLayout } from '../../types/TLayout';
 
-const Header = ({ show, textButton }: TLayout) => {
+const Header = ({ show }: TLayout) => {
   const [menu, setMenu] = useState<boolean>(false);
 
   const handleMenu = () => {
@@ -35,7 +35,7 @@ const Header = ({ show, textButton }: TLayout) => {
       </BurgerMenuContainer>
 
       <NavContainer hidden={menu}>
-        <ThemeProvider theme={{ fg: 'white', bg: '#6D1D3C', show }}>
+        <ThemeProvider theme={theme}>
           <Link href="/" passHref>
             <LinkRouter>Home</LinkRouter>
           </Link>
@@ -49,18 +49,31 @@ const Header = ({ show, textButton }: TLayout) => {
             <LinkRouter>Classroom</LinkRouter>
           </Link>
 
-          <HeaderButton>
-            <Link href="/signup" passHref>
-              <LinkRouter>SignUp</LinkRouter>
-            </Link>
-          </HeaderButton>
-          <ThemeProvider theme={invertTheme}>
-            <HeaderButton>
-              <Link href="/login" passHref>
-                <LinkRouter>{textButton ? textButton : 'Login'}</LinkRouter>
-              </Link>
-            </HeaderButton>
-          </ThemeProvider>
+          {show?.length ? (
+            <>
+              <HeaderButton>
+                <Link href="/signup" passHref>
+                  <LinkRouter>SignUp</LinkRouter>
+                </Link>
+              </HeaderButton>
+
+              <ThemeProvider theme={{ fg: theme.bg, bg: theme.fg }}>
+                <HeaderButton>
+                  <Link href="/login" passHref>
+                    <LinkRouter> Login</LinkRouter>
+                  </Link>
+                </HeaderButton>
+              </ThemeProvider>
+            </>
+          ) : (
+            <ThemeProvider theme={{ fg: theme.bg, bg: theme.fg, show }}>
+              <HeaderButton>
+                <Link href="/signup" passHref>
+                  <LinkRouter>Logout</LinkRouter>
+                </Link>
+              </HeaderButton>
+            </ThemeProvider>
+          )}
         </ThemeProvider>
       </NavContainer>
     </HeaderContainer>

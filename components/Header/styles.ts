@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { THeaderButton } from '../../types/THeaderButton';
 
 export const HeaderContainer = styled.header`
   display: grid;
@@ -102,7 +101,7 @@ export const HeaderButton = styled.button`
   }
 `;
 
-export const invertTheme = ({ fg, bg }: THeaderButton) => ({
-  fg: bg,
-  bg: fg,
-});
+export const theme = {
+  fg: 'white',
+  bg: '#6D1D3C',
+};
