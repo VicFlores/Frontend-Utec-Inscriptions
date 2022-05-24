@@ -72,12 +72,12 @@ export const ErrorField = styled.p`
   font-size: 10px;
   margin: 0;
   padding: 0;
-`
+`;
 
 export const Error = styled.p`
   color: red;
   text-align: center;
-`
+`;
 
 export const Button = styled.button`
   background-color: #6d1d3c;
