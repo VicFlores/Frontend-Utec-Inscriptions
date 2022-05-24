@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { THeaderButton } from '../../types/THeaderButton';
 
 export const HeaderContainer = styled.header`
   display: grid;
@@ -84,6 +83,7 @@ export const LinkRouter = styled.a`
 `;
 
 export const HeaderButton = styled.button`
+  display: ${(props) => props.theme.show};
   color: ${(props) => props.theme.fg};
   border: 1px solid ${(props) => props.theme.fg};
   background: ${(props) => props.theme.bg};
@@ -105,8 +105,3 @@ export const theme = {
   fg: 'white',
   bg: '#6D1D3C',
 };
-
-export const invertTheme = ({ fg, bg }: THeaderButton) => ({
-  fg: bg,
-  bg: fg,
-});

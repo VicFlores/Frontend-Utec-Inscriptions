@@ -1,12 +1,13 @@
 import React from 'react';
+import DashboardCard from '../../components/DashboardCard/DashboardCard';
+import Layout from '../../components/Layout/Layout';
 
-
-const index = () => {
+const Dashboard = () => {
   return (
-   <>
-    <h1>Hi dashboard</h1>
-   </>
+    <Layout>
+      <DashboardCard />
+    </Layout>
   );
 };
 
-export default index;
+export default Dashboard;

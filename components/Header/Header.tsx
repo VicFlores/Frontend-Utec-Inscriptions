@@ -9,13 +9,13 @@ import {
   HeaderContainer,
   LinkRouter,
   NavContainer,
-  theme,
-  invertTheme,
   BurgerMenu,
   BurgerMenuContainer,
+  theme,
 } from './styles';
+import { TLayout } from '../../types/TLayout';
 
-const Header = () => {
+const Header = ({ show }: TLayout) => {
   const [menu, setMenu] = useState<boolean>(false);
 
   const handleMenu = () => {
@@ -49,18 +49,31 @@ const Header = () => {
             <LinkRouter>Classroom</LinkRouter>
           </Link>
 
-          <HeaderButton>
-            <Link href="/signup" passHref>
-              <LinkRouter>SignUp</LinkRouter>
-            </Link>
-          </HeaderButton>
-          <ThemeProvider theme={invertTheme}>
-            <HeaderButton>
-              <Link href="/login" passHref>
-                <LinkRouter>Login</LinkRouter>
-              </Link>
-            </HeaderButton>
-          </ThemeProvider>
+          {show?.length ? (
+            <>
+              <HeaderButton>
+                <Link href="/signup" passHref>
+                  <LinkRouter>SignUp</LinkRouter>
+                </Link>
+              </HeaderButton>
+
+              <ThemeProvider theme={{ fg: theme.bg, bg: theme.fg }}>
+                <HeaderButton>
+                  <Link href="/login" passHref>
+                    <LinkRouter> Login</LinkRouter>
+                  </Link>
+                </HeaderButton>
+              </ThemeProvider>
+            </>
+          ) : (
+            <ThemeProvider theme={{ fg: theme.bg, bg: theme.fg, show }}>
+              <HeaderButton>
+                <Link href="/signup" passHref>
+                  <LinkRouter>Logout</LinkRouter>
+                </Link>
+              </HeaderButton>
+            </ThemeProvider>
+          )}
         </ThemeProvider>
       </NavContainer>
     </HeaderContainer>

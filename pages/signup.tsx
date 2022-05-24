@@ -5,7 +5,7 @@ import SignUpForm from '../components/SignUpForm/SignUpForm';
 const SignUp = () => {
   return (
     <div>
-      <Layout>
+      <Layout show="none">
         <SignUpForm
           src="https://res.cloudinary.com/vicflores11/image/upload/v1653335065/undraw_Mobile_payments_re_7udl_crpgs5.png"
           cols="repeat(2, 400px)"

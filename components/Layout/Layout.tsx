@@ -2,10 +2,10 @@ import React from 'react';
 import { TLayout } from '../../types/TLayout';
 import Header from '../Header/Header';
 
-const Layout = ({ children }: TLayout) => {
+const Layout = ({ children, show }: TLayout) => {
   return (
     <>
-      <Header />
+      <Header show={show} />
       {children}
     </>
   );
