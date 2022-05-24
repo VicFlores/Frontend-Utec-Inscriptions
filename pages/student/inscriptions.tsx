@@ -5,7 +5,7 @@ import Layout from '../../components/Layout/Layout';
 function Inscriptions() {
   return (
     <div>
-      <Layout>
+      <Layout show="none" textButton="Logout">
         <InscriptionsForm
           src="https://res.cloudinary.com/vicflores11/image/upload/v1653255681/undraw_text_field_htlv_ok6ufw.png"
           cols="626px"
