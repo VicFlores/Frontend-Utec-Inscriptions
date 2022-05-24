@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { AiOutlineEye } from 'react-icons/ai';
+import { acceptStudent, denyStudent } from '../../utils/inscriptions';
 import {
   Button,
   Table,
@@ -11,7 +12,16 @@ import {
   Tr,
 } from './styles';
 
-const InscriptionsTable = () => {
+const InscriptionsTable = ({data, token}:{data:any, token:string}) => {
+  const declinedStudent = async(id:string) => {
+    const result = await denyStudent(id, token)
+  }
+
+  const approvedtStudent = async(id:string) => {
+    await acceptStudent(id, token)
+  }
+
+
   return (
     <TableContainer>
       <Table className="animate__animated animate__fadeInLeft">
@@ -28,29 +38,49 @@ const InscriptionsTable = () => {
             <Th>Deny</Th>
           </tr>
         </Thead>
-
         <Tbody>
-          <Tr>
-            <Td>Vic Ferman</Td>
-            <Td>Flores Escobar</Td>
-            <Td>21</Td>
-            <Td>El Salvador</Td>
-            <Td>San Salvador</Td>
-            <Td>75527785</Td>
-            <Td>
-              <Button theme={{ bgColor: '#2F8F9D', wth: '100px' }}>
-                <AiOutlineEye fontSize={'26px'} />
-              </Button>
-            </Td>
-            <Td>
-              <Button theme={{ bgColor: '#81B214', wth: '150px' }}>
-                Accept
-              </Button>
-            </Td>
-            <Td>
-              <Button theme={{ bgColor: '#B20600', wth: '150px' }}>Deny</Button>
-            </Td>
-          </Tr>
+
+        {
+          data.signups.length > 0 ?
+
+          data.signups.map((value:any, index:number) => {
+            return(
+              <>
+                <Tr key={index}>
+                  <Td>{value.name}</Td>
+                  <Td>{value.lastname}</Td>
+                  <Td>{value.age}</Td>
+                  <Td>{value.country}</Td>
+                  <Td>{value.city}</Td>
+                  <Td>{value.cellphone}</Td>
+                  <Td>
+                    <Button 
+                      theme={{ bgColor: '#2F8F9D', wth: '100px' }}
+                    >
+                      <AiOutlineEye fontSize={'26px'} />
+                    </Button>
+                  </Td>
+                  <Td>
+                    <Button 
+                      theme={{ bgColor: '#81B214', wth: '150px' }}
+                      onClick={() => approvedtStudent(value.id)}
+                    >
+                      Accept
+                    </Button>
+                  </Td>
+                  <Td>
+                    <Button 
+                      theme={{ bgColor: '#B20600', wth: '150px' }}
+                      onClick={() => declinedStudent(value.id)}
+                    >Deny</Button>
+                  </Td>
+                </Tr>
+              
+              </>
+            )
+          })
+        : <p>Not data yet available</p>
+        }
         </Tbody>
       </Table>
     </TableContainer>
