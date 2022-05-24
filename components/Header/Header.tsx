@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { ThemeProvider } from 'styled-components';
 import { AiOutlineMenu } from 'react-icons/ai';
+import { TLayout } from '../../types/TLayout';
 import {
   AppName,
   AppNameContainer,
@@ -9,13 +10,12 @@ import {
   HeaderContainer,
   LinkRouter,
   NavContainer,
-  theme,
-  invertTheme,
   BurgerMenu,
   BurgerMenuContainer,
+  invertTheme,
 } from './styles';
 
-const Header = () => {
+const Header = ({ show, textButton }: TLayout) => {
   const [menu, setMenu] = useState<boolean>(false);
 
   const handleMenu = () => {
@@ -35,7 +35,7 @@ const Header = () => {
       </BurgerMenuContainer>
 
       <NavContainer hidden={menu}>
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={{ fg: 'white', bg: '#6D1D3C', show }}>
           <Link href="/" passHref>
             <LinkRouter>Home</LinkRouter>
           </Link>
@@ -57,7 +57,7 @@ const Header = () => {
           <ThemeProvider theme={invertTheme}>
             <HeaderButton>
               <Link href="/login" passHref>
-                <LinkRouter>Login</LinkRouter>
+                <LinkRouter>{textButton ? textButton : 'Login'}</LinkRouter>
               </Link>
             </HeaderButton>
           </ThemeProvider>
