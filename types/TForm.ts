@@ -10,4 +10,5 @@ export type TForm = {
   formsHeight: string;
   btnColStart?: string;
   btnColEnd?: string;
+  token?: string;
 };

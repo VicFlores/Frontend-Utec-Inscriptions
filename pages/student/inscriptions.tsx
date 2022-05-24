@@ -1,8 +1,29 @@
 import React from 'react';
 import InscriptionsForm from '../../components/InscriptionsForm/InscriptionsForm';
 import Layout from '../../components/Layout/Layout';
+import { CookieValueTypes } from 'cookies-next/lib/types'
+import { getCookie } from 'cookies-next';
+import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from 'next'
 
-function Inscriptions() {
+
+export const getServerSideProps:GetServerSideProps = async (context) => {
+  const { req, res } = context
+  const token: CookieValueTypes = getCookie('token', { req, res })
+  if(!token){
+    return {
+      redirect:{
+        destination: '/login',
+        permanent: false
+      }
+    }
+  }
+
+  return{props: { token }}
+}
+
+
+
+function Inscriptions({token}: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <div>
       <Layout>
@@ -16,6 +37,7 @@ function Inscriptions() {
           formsHeight="500px"
           btnColStart="1"
           btnColEnd="3"
+          token={token}
         />
       </Layout>
     </div>
