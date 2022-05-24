@@ -8,7 +8,8 @@ import {
   CardInfoText,
 } from './styles';
 
-const DashboardCard = () => {
+const DashboardCard = ({data}:{data:any}) => {
+  console.log(data);
   return (
     <CardContainer>
       <Card>
@@ -17,13 +18,13 @@ const DashboardCard = () => {
         </CardImgContainer>
 
         <CardInfoContainer>
-          <CardInfoText>Name: Vic Ferman</CardInfoText>
-          <CardInfoText>Lastname: Flores Escobar</CardInfoText>
-          <CardInfoText>Age: 21</CardInfoText>
-          <CardInfoText>Country: El Salvador</CardInfoText>
-          <CardInfoText>City: San Salvador</CardInfoText>
-          <CardInfoText>CellPhone: 75527785</CardInfoText>
-          <CardInfoText>Status: Pending</CardInfoText>
+          <CardInfoText>Name: {data.signup.name}</CardInfoText>
+          <CardInfoText>Lastname: {data.signup.lastname}</CardInfoText>
+          <CardInfoText>Age: {data.signup.age}</CardInfoText>
+          <CardInfoText>Country: {data.signup.country}</CardInfoText>
+          <CardInfoText>City: {data.signup.city}</CardInfoText>
+          <CardInfoText>CellPhone: {data.signup.cellphone}</CardInfoText>
+          <CardInfoText>Status: {data.signup.status}</CardInfoText>
         </CardInfoContainer>
       </Card>
     </CardContainer>
