@@ -16,6 +16,7 @@ import {
   ErrorField,
 } from '../GlobalComponents/GlobalStyles';
 import { loginUser } from '../../utils/users';
+import { verifyAuth } from '../../utils/verifyAuth';
 
 type Inputs = {
   email: string,
@@ -45,10 +46,15 @@ const LoginForm = ({
       setMessage(result.message)
       return
     }
-    console.log("pasoaqui");
-
     setCookies('token', result.token);
+    const resultDecoded = await verifyAuth(result.token);
   
+    if (resultDecoded.permissions === 'manager'){
+      router.push({
+        pathname: '/manager'
+      })
+      return
+    }
     router.push({
       pathname: '/student'
     })
