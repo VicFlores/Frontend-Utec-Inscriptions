@@ -66,13 +66,18 @@ const Header = ({ show }: TLayout) => {
               </ThemeProvider>
             </>
           ) : (
-            <ThemeProvider theme={{ fg: theme.bg, bg: theme.fg, show }}>
-              <HeaderButton>
-                <Link href="/signup" passHref>
-                  <LinkRouter>Logout</LinkRouter>
-                </Link>
-              </HeaderButton>
-            </ThemeProvider>
+            <>
+              <Link href="/student/inscriptions" passHref>
+                <LinkRouter>Inscription</LinkRouter>
+              </Link>
+              <ThemeProvider theme={{ fg: theme.bg, bg: theme.fg, show }}>
+                <HeaderButton>
+                  <Link href="/signup" passHref>
+                    <LinkRouter>Logout</LinkRouter>
+                  </Link>
+                </HeaderButton>
+              </ThemeProvider>
+            </>
           )}
         </ThemeProvider>
       </NavContainer>
