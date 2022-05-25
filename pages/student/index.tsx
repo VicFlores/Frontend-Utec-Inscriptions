@@ -21,7 +21,11 @@ export const getServerSideProps:GetServerSideProps = async (context) => {
 
   const resultDecoded = await verifyAuth(token as string);
 
-  const result = await getInscription(resultDecoded.id as string, token as string)
+  let result = await getInscription(resultDecoded.id as string, token as string)
+  console.log(result);
+  if(result.message){
+    result = {}
+  }
   
   return{props: {result}}
 
